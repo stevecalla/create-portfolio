@@ -5,6 +5,7 @@ const { licenseList } = require("./badges");
 // TBD2-project-title,
 // TBD3-project-image-url,
 // select-a-background,
+// resume link/url
 
 const promptQuestion = [
   {
@@ -28,7 +29,7 @@ const promptQuestion = [
     prefix: "⠋🟡 2)",
     type: "input",
     name: "motto",
-    message: "What is your name?",
+    message: "What is your motto?",
     default: "SIEZE THE DAY",
     suffix: " 🟡",
     filter(answer) {

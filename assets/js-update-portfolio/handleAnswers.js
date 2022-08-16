@@ -1,25 +1,31 @@
 const fs = require("fs");
-const template = require("./html-template");
+const template = require("./htmlTemplate");
 const { licenseBadges } = require("./badges"); //todo
 const { writeAnswers } = require("./writeAnswers"); // Step #2: save answers to readme-answers.txt
+const { projects } = require("./projects");
+const { newProject } = require("./htmlProjectTemplate");
 
 handleAnswers = (answers) => {
-  // GET THE LICENSE BADGE BASED ON USER SELECTION
-  let renderBadge = licenseBadges.filter(
-    (element) => element.license.toLowerCase() === answers.license.toLowerCase()
-  ); //todo
-
-  // ADD THE LICENSE BADGE TO THE ANSWER OBJECT
-  answers.licenseBadge = renderBadge[0].badge; //todo
-  // console.log('4 ', answers); //if necessary uncomment to see the final anaswer object
-
   // WRITE THE NEW ANSWERS OBJECT TO THE SOURCE OF TRUTH README-ANSWERS.TXT FILE
   writeAnswers(JSON.stringify(answers));
 
-  // CREATE THE README
+
+  // PUSH NEW PROJECT INTO THE PROJECTS DATA SET
+  ADD NEW PROJECT INFO TO THE HTML PROJECT TEMPLATE
+  APPEND HTML PROJECT TEMPLATE TO PROJECTS TEXT
+  THEN READ PROJECT TEXT
+  CREATE OBJECT PROPERTY FOR PROJECT TEXT
+  // console.log(newProject);
+
+  fs.appendFile('projects.txt', newProject, (err) => {
+    err ? console.error(err) : console.log('Commit logged!')
+  });
+
+  answers.projects = projects;
+
   fs.writeFile(
     '../../index-draft.html',
-    template.readmeTemplate(answers), //todo
+    template.htmlTemplate(answers), //todo
     function (err) {
       if (err) throw err;
       // console.log('It\'s saved!');
@@ -30,7 +36,3 @@ handleAnswers = (answers) => {
 module.exports = {
   handleAnswers,
 };
-
-/*
-See or run readme-utilities (node readme-utilities.js) to view a list of the licenses from the readme-badges.js object
-*/
