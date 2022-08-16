@@ -10,15 +10,15 @@ Step #5 handleAnswers() determines which license badge to add to the answwers ob
 const fs = require("fs");
 const inquirer = require("inquirer"); //Step #1
 const { promptQuestion } = require("./questions"); //Step #1a
-const { writeAnswers } = require("./writeAnswers"); //Step #2
-const { getAnswers } = require("./getAnswers"); // Step #3
+// const { writeAnswers } = require("./writeAnswers"); //Step #2
+// const { getAnswers } = require("./getAnswers"); // Step #3
 
 let main = async () => {
   instructions(); //prints initial instructions to the console
   const promptAnswers = await inquirer.prompt(promptQuestion); // Step #1
   // console.log('1 = ', promptAnswers); // if necessary to view the answers object
-  await writeAnswers(JSON.stringify(promptAnswers)); // Step #2
-  await getAnswers(); // Step #3
+  // await writeAnswers(JSON.stringify(promptAnswers)); // Step #2
+  // await getAnswers(); // Step #3
   nextSteps(); //prints final instructions to the console
 };
 
