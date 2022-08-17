@@ -21,7 +21,7 @@ const { newProject } = require("./htmlProjectTemplate");
 let main = async () => {
   instructions();
   const promptAnswers = await inquirer.prompt(promptQuestion);
-  await writeAnswers(JSON.stringify(promptAnswers));
+  // await writeAnswers(JSON.stringify(promptAnswers));
   // getAnswers();
   await createNewProject(promptAnswers); //creates project from input
   const data = await fs.readFile("newProject.txt"); //reads project from txt
