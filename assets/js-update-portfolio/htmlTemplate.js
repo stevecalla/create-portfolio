@@ -7,10 +7,6 @@ const htmlTemplate = ({
   gitHubUserName,
   projects,
   linkedInURL,
-  portfolio,
-  TBD1,
-  TBD2,
-  TBD3,
 }) =>
   `<!DOCTYPE html>
   <html lang="en">
@@ -85,7 +81,6 @@ const htmlTemplate = ({
             <h1>Work</h1>
           </aside>
           <article class="portfolio-container">${projects}
-            <!-- INSERT PORTFOLIO PROJECTS -->
           </article>
         </section>
       </main>

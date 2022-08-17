@@ -7,20 +7,38 @@ Step #4 getAnswers() called handleAnswers()
 Step #5 handleAnswers() determines which license badge to add to the answwers object & gerates the readme file
 */
 
-const fs = require("fs");
+const fs = require("fs").promises;
 const inquirer = require("inquirer"); //Step #1
 const { promptQuestion } = require("./questions"); //Step #1a
 const { writeAnswers } = require("./writeAnswers"); //Step #2
-const { getAnswers } = require("./getAnswers"); // Step #3
+// const { getAnswers } = require("./getAnswers"); // Step #3
+
+// const fs = require("fs").promises;
+const template = require("./htmlTemplate");
+// const { writeAnswers } = require("./writeAnswers"); // Step #2: save answers to readme-answers.txt
+const { newProject } = require("./htmlProjectTemplate");
 
 let main = async () => {
-  instructions(); //prints initial instructions to the console
-  const promptAnswers = await inquirer.prompt(promptQuestion); // Step #1
-  // console.log('1 = ', promptAnswers); // if necessary to view the answers object
-  await writeAnswers(JSON.stringify(promptAnswers)); // Step #2
-  await getAnswers(); // Step #3
-  nextSteps(); //prints final instructions to the console
-};
+  instructions();
+  const promptAnswers = await inquirer.prompt(promptQuestion);
+  await writeAnswers(JSON.stringify(promptAnswers));
+  // getAnswers();
+  await createNewProject(promptAnswers); //creates project from input
+  const data = await fs.readFile("newProject.txt"); //reads project from txt
+  await fs.appendFile('projects.txt', data); //appends project
+  const allProjects = await fs.readFile("projects.txt", "utf8"); //get all projects
+  promptAnswers.projects = allProjects; //appends all project html to answer object
+  writeAnswers(JSON.stringify(promptAnswers)); //writes all answer object to text file
+  fs.writeFile('../../index-draft.html', template.htmlTemplate(promptAnswers), function (err) {if (err) throw err;}); //creates final html file
+  nextSteps(); 
+}
+
+async function createNewProject(answers) {
+  await fs.writeFile('newProject.txt', newProject(answers), function (err) {
+    if (err) throw err;
+    console.log('createdNewProject')
+  })
+}
 
 instructions = () => {
   console.log(`\n------------------`);

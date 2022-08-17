@@ -1,18 +1,8 @@
-const { licenseList } = require("./badges");
-
-// portfolio,
-// TBD1-project-url,
-// TBD2-project-title,
-// TBD3-project-image-url,
-// select-a-background,
-// resume link/url
-
 const promptQuestion = [
   {
     prefix: "⠋🟡 1)",
     type: "input",
     name: "name",
-    // message: "What is your name?",
     message: `\x1b[36mWhat is Your Name\x1b[0m`,
     default: "Steve Calla",
     suffix: " 🟡",
@@ -91,23 +81,66 @@ const promptQuestion = [
     },
   },
   {
-    prefix: "⠋🟡 7)",
+    prefix: "⠋🟡 8)",
     type: "input",
-    name: "linkedInURL",
-    message: "Please enter your LinkedIn URL?",
-    default: "https://www.linkedin.com/in/steve-calla/",
+    name: "projectWebsiteURL",
+    message: "Please enter the project website URL?",
+    default: "https://stevecalla.github.io/bessie-the-dog/",
     suffix: " 🟡",
     filter(answer) {
       return answer.trim();
     },
   },
   {
-    prefix: "⠋🟡 7)",
+    prefix: "⠋🟡 9)",
     type: "input",
-    message:
-      "Please add the path/URL for a static image of the project (i.e. ../images/example-image.png)?",
-    name: "staticImage",
-    default: "./assets/images/create-readme.png",
+    name: "projectWebsiteTitle",
+    message: "Please enter the project website title?",
+    default: "Bessie the Dog Photo Gallery",
+    suffix: " 🟡",
+    filter(answer) {
+      return answer.trim();
+    },
+  },
+  {
+    prefix: "⠋🟡 10)",
+    type: "input",
+    message: "Please add the path/URL for a static image of the project (i.e. ./assets/images/bessie_the_dog_app.png)?",
+    name: "projectImage",
+    default: "./assets/images/bessie_the_dog_app.png",
+    suffix: " 🟡",
+    filter(answer) {
+      return answer.trim();
+    },
+  },
+  {
+    prefix: "⠋🟡 11)",
+    type: "input",
+    message: "Please add the project image ALT tag?",
+    name: "projectImageALTTag",
+    default: "Bessie the Dog",
+    suffix: " 🟡",
+    filter(answer) {
+      return answer.trim();
+    },
+  },
+  {
+    prefix: "⠋🟡 12)",
+    type: "input",
+    message: "Please add the project title?",
+    name: "projectTitle",
+    default: "Bessie the Dog",
+    suffix: " 🟡",
+    filter(answer) {
+      return answer.trim();
+    },
+  },
+  {
+    prefix: "⠋🟡 13)",
+    type: "input",
+    message: "Please add the project subtitle?",
+    name: "projectSubTitle",
+    default: "Dog's Life",
     suffix: " 🟡",
     filter(answer) {
       return answer.trim();
@@ -118,3 +151,23 @@ const promptQuestion = [
 module.exports = {
   promptQuestion,
 };
+
+
+
+{/* <div class="project">
+<a
+  href="${projectWebsiteURL}"
+  target="_blank"
+  title="${projectWebsiteTitle}"
+>
+  <img
+    src="${projectImage}"
+    alt="${projectImageALTTag}"
+    loading="lazy"
+  />
+  <div class="titles">
+    <p>${projectTitle}</p>
+    <p>${projectSubtitle}</p> 
+  </div>
+</a>
+</div> */}

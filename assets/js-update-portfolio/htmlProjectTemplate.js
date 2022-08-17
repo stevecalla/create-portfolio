@@ -1,21 +1,29 @@
-const newProject = 
-  `<div class="project">
-    <a
-      href="https://stevecalla.github.io/bessie-the-dog/"
-      target="_blank"
-      title="Bessie the Dog Photos"
-    >
-      <img
-        src="./assets/images/bessie_the_dog_app.png"
-        alt="Bessie the Dog"
-        loading="lazy"
-      />
-      <div class="titles">
-        <p>Bessie the Dog</p>
-        <p>Dog's Life</p>
-      </div>
-    </a>
-  </div>`;
+const newProject = ({
+  projectWebsiteURL,
+  projectWebsiteTitle, 
+  projectImage,
+  projectImageALTTag,
+  projectTitle,
+  projectSubTitle,
+}) => `
+          <div class="project">
+            <a
+              href="${projectWebsiteURL}"
+              target="_blank"
+              title="${projectWebsiteTitle}"
+            >
+              <img
+                src="${projectImage}"
+                alt="${projectImageALTTag}"
+                loading="lazy"
+              />
+              <div class="titles">
+                <p>${projectTitle}</p>
+                <p>${projectSubTitle}</p> 
+              </div>
+            </a>
+          </div>
+    `;
 
 module.exports = {
   newProject,
