@@ -12,7 +12,8 @@ const promptQuestion = [
     prefix: "⠋🟡 1)",
     type: "input",
     name: "name",
-    message: "What is your name?",
+    // message: "What is your name?",
+    message: `\x1b[36mWhat is Your Name\x1b[0m`,
     default: "Steve Calla",
     suffix: " 🟡",
     validate(answer) {
