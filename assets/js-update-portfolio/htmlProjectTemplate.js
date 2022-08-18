@@ -12,15 +12,15 @@ const newProject = ({
               target="_blank"
               title="${projectWebsiteTitle}"
             >
-              <img
-                src="${projectImage}"
-                alt="${projectImageALTTag}"
-                loading="lazy"
-              />
-              <div class="titles">
-                <p>${projectTitle}</p>
-                <p>${projectSubTitle}</p> 
-              </div>
+            <img
+              src="${projectImage}"
+              alt="${projectImageALTTag}"
+              loading="lazy"
+            />
+            <div class="titles">
+              <p>${projectTitle}</p>
+              <p>${projectSubTitle}</p> 
+            </div>
             </a>
           </div>
     `;
