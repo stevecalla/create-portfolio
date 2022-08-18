@@ -17,6 +17,7 @@ const { writeAnswers } = require("./writeAnswers"); //Step #2
 const template = require("./htmlTemplate");
 // const { writeAnswers } = require("./writeAnswers"); // Step #2: save answers to readme-answers.txt
 const { newProject } = require("./htmlProjectTemplate");
+let { projects } = require("./projects.js");
 
 let main = async () => {
   instructions();
@@ -27,10 +28,44 @@ let main = async () => {
   const data = await fs.readFile("newProject.txt"); //reads project from txt
   await fs.appendFile('projects.txt', data); //appends project
   const allProjects = await fs.readFile("projects.txt", "utf8"); //get all projects
+  
   promptAnswers.projects = allProjects; //appends all project html to answer object
   writeAnswers(JSON.stringify(promptAnswers)); //writes all answer object to text file
   fs.writeFile('../../index-draft.html', template.htmlTemplate(promptAnswers), function (err) {if (err) throw err;}); //creates final html file
   nextSteps(); 
+
+  //section: read json source of truth
+  const getProjects = await fs.readFile("projects.json", "utf-8");
+  //parse json into an array
+  let parsedProjects = JSON.parse(getProjects);
+  console.log('parsed = ', parsedProjects)
+  //section: create an object of project answers
+  let projectAnswers = {
+      projectWebsiteURL: promptAnswers.projectWebsiteURL,
+      projectWebsiteTitle: promptAnswers.projectWebsiteTitle,
+      projectImage: promptAnswers.projectImage,
+      projectImageALTTag: promptAnswers.projectImageALTTag,
+      projectTitle: promptAnswers.projectTitle,
+      projectSubTitle: promptAnswers.projectSubTitle,
+  };
+  console.log('project input = ', projectAnswers);
+  //section: modify the array - add or delete
+  parsedProjects.push(projectAnswers);
+  console.log(parsedProjects);
+  //section: write json soucre of truth back to original
+  await fs.writeFile("projects.json", JSON.stringify(parsedProjects), function (err) {
+    if (err) throw err;
+    // console.log('It\'s saved!');
+  });
+  //section: use array to create html for projects
+  let projectString = "";
+  parsedProjects.forEach(element => {
+    projectString += newProject(element); 
+  })
+  console.log(projectString);
+
+  //inject html for project into answers.txt
+  //render html for projects
 }
 
 async function createNewProject(answers) {

@@ -81,7 +81,7 @@ const promptQuestion = [
     },
   },
   {
-    prefix: "⠋🟡 8)",
+    prefix: "⠋🟡 7)",
     type: "input",
     name: "projectWebsiteURL",
     message: "Please enter the project website URL?",
@@ -92,7 +92,7 @@ const promptQuestion = [
     },
   },
   {
-    prefix: "⠋🟡 9)",
+    prefix: "⠋🟡 8)",
     type: "input",
     name: "projectWebsiteTitle",
     message: "Please enter the project website title?",
@@ -103,7 +103,7 @@ const promptQuestion = [
     },
   },
   {
-    prefix: "⠋🟡 10)",
+    prefix: "⠋🟡 9)",
     type: "input",
     message: "Please add the path/URL for a static image of the project (i.e. ./assets/images/bessie_the_dog_app.png)?",
     name: "projectImage",
@@ -114,7 +114,7 @@ const promptQuestion = [
     },
   },
   {
-    prefix: "⠋🟡 11)",
+    prefix: "⠋🟡 10)",
     type: "input",
     message: "Please add the project image ALT tag?",
     name: "projectImageALTTag",
@@ -125,7 +125,7 @@ const promptQuestion = [
     },
   },
   {
-    prefix: "⠋🟡 12)",
+    prefix: "⠋🟡 11)",
     type: "input",
     message: "Please add the project title?",
     name: "projectTitle",
@@ -136,7 +136,7 @@ const promptQuestion = [
     },
   },
   {
-    prefix: "⠋🟡 13)",
+    prefix: "⠋🟡 12)",
     type: "input",
     message: "Please add the project subtitle?",
     name: "projectSubTitle",
