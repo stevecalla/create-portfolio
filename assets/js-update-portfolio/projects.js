@@ -1,4 +1,13 @@
+// ORIGINAL PROJECT LIST; USED TO RECREATE STARTER PROJECT LIST IF NECESSARY
 let projects = [
+  {
+    projectWebsiteURL: "https://stevecalla.github.io/not_wordle_v1/",
+    projectWebsiteTitle: "A Wordle Clone",
+    projectImage: "./assets/images/wordguess_combo.png",
+    projectImageALTTag: "Word Guess",
+    projectTitle: "WordGuess",
+    projectSubTitle: "A Wordle Clone",
+  },
   {
     projectWebsiteURL: "https://stevecalla.github.io/bessie-the-dog/",
     projectWebsiteTitle: "Bessie the Dog Photos",
