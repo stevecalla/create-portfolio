@@ -32,7 +32,7 @@ const promptQuestion = [
     type: "input",
     name: "aboutMe",
     message: "Please provide a 3 to 4 sentence about me description?",
-    default: "What can I say? I live in Boulder, Colorado. I'm currently studying full-stack coding at Denver Unversity and expect to graduate in December 2022. I'm have an extensive marketing background, and have managed marketing analytics as well as e-commerce in a variety of industries. I am super curious to learn the coding trade and incorporate that into my marketing career in some fashion. I'm particularly facinated by how much fun it is to solve coding puzzles (across the universe of HTML, CSS and Javascript) and to make the user experience effective and accessible.",
+    default: "What can I say? I live in Boulder, Colorado. I'm currently studying full-stack coding at Denver Unversity and expect to graduate in December 2022. I have an extensive marketing background, and have managed marketing analytics as well as e-commerce in a variety of industries. I am super curious to learn the coding trade and incorporate that into my marketing career in some fashion. I'm particularly facinated by how much fun it is to solve coding puzzles (across the universe of HTML, CSS and Javascript) and to make the user experience effective and accessible.",
     suffix: " 🟡",
     filter(answer) {
       return answer.trim();

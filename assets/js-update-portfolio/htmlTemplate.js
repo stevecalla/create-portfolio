@@ -47,7 +47,7 @@ const htmlTemplate = ({
           <a href="#portfolio-section" tile="My portfolio">PORTFOLIO</a>
           <a href="#contact-me-section" tile="Contact me">CONTACT ME</a>
           <a
-            href="./assets/images/steve_calla_resume_010822v1.pdf"
+            href="./assets/images/steve_calla_resume_081722.pdf"
             download
             target="_blank"
             tile="Resume"
